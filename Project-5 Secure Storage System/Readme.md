@@ -97,6 +97,3 @@ This will open the **Secure Storage Vault** window.
 This project is for **educational and personal use**.
 
 ---
-
-Would you like me to:
-👉 make this README as a **ready-to-download markdown file** (`README.md`) so you can directly add it to your repo?
