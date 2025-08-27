@@ -55,6 +55,7 @@ This will open the **Secure Storage Vault** window.
 
 * Enter your vault password in the **Password field**.
 * If the vault doesn’t exist, it will be initialized with this password.
+* User can create the vault at any folder
 
 ### 3. **Encrypt**
 
