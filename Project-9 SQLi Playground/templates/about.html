@@ -21,11 +21,11 @@ query = f"SELECT * FROM users WHERE username='{username}' AND password='{passwor
           Attackers can inject SQL code, for example:
         </p>
         <pre class="bg-light text-dark p-2 rounded">
-Username: ' OR '1'='1 --
+Username: ' OR '1'='1' --
 Password: anything
         </pre>
         <p>
-          This bypasses login and returns all users!
+          This bypasses login 
         </p>
 
         <h4 class="mt-4">🟢 Safe Query Example</h4>
@@ -63,4 +63,5 @@ cur.execute(query, (username, password))
     </div>
   </div>
 </div>
+
 {% endblock %}
