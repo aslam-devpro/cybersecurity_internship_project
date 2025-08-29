@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card shadow-lg border-0 rounded-3">
+      <div class="card-body p-5 text-center">
+        <h2 class="mb-3">Welcome, {{ user }} 🎉</h2>
+        <p class="lead">You are now logged in to the SQLi Playground Dashboard.</p>
+        <hr class="my-4">
+        <a href="{{ url_for('logout') }}" class="btn btn-danger btn-lg">🚪 Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

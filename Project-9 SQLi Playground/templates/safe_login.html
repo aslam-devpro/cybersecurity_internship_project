@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow-lg border-0 rounded-3">
+      <div class="card-body p-4">
+        <h2 class="text-center text-success mb-4">🔒 Safe Login</h2>
+        <form method="POST" action="{{ url_for('safe_login') }}">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+          </div>
+          <button type="submit" class="btn btn-success w-100">Login</button>
+        </form>
+        {% if message %}
+          <div class="alert alert-info mt-3">{{ message }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-10">
+    <div class="card shadow-lg border-0 rounded-3">
+      <div class="card-body p-5">
+        <h2 class="mb-4">About SQLi Playground</h2>
+        <p>
+          This web app demonstrates how <strong>SQL Injection</strong> vulnerabilities work
+          and how to prevent them using <strong>parameterized queries</strong>.
+        </p>
+        
+        <hr>
+
+        <h4>🔴 Vulnerable Query Example</h4>
+        <pre class="bg-dark text-light p-3 rounded">
+query = f"SELECT * FROM users WHERE username='{username}' AND password='{password}'"
+        </pre>
+        <p>
+          Here, user input is directly concatenated into the SQL query.  
+          Attackers can inject SQL code, for example:
+        </p>
+        <pre class="bg-light text-dark p-2 rounded">
+Username: ' OR '1'='1 --
+Password: anything
+        </pre>
+        <p>
+          This bypasses login and returns all users!
+        </p>
+
+        <h4 class="mt-4">🟢 Safe Query Example</h4>
+        <pre class="bg-dark text-light p-3 rounded">
+query = "SELECT * FROM users WHERE username=? AND password=?"
+cur.execute(query, (username, password))
+        </pre>
+        <p>
+          In this version, user inputs are safely passed as parameters,  
+          preventing malicious SQL code from executing.
+        </p>
+
+        <hr>
+
+        <h4 class="mt-4">🛡️ How the Detector Works</h4>
+        <p>
+          Along with demonstrating vulnerabilities, this playground also includes a 
+          <strong>SQL Injection Detector</strong>.  
+        </p>
+        <p>
+          The detector compares user inputs against a list of known malicious patterns, 
+          such as common SQL injection keywords and operators.  
+        </p>
+        <p>
+          - If suspicious input is found, it is flagged as a possible SQL injection attempt. <br>
+          - Each attempt is logged with details and timestamps for analysis. <br>
+          - If no match is found, the input is considered safe. <br>
+        </p>
+        <p>
+          This shows how detection systems can help identify malicious activity, 
+          but also highlights that real-world systems use more advanced techniques than this simple educational demo.
+        </p>
+ <p class="text-muted mt-4">⚠️ Use this app for learning only. Never deploy vulnerable code in production.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

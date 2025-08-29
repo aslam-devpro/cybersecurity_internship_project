@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="text-center py-5">
+  <h1 class="display-5 fw-bold">🔐 SQLi Playground</h1>
+  <p class="lead">Explore vulnerable vs safe login flows using SQL Injection techniques.</p>
+  <div class="mt-4">
+    <a href="{{ url_for('login') }}" class="btn btn-lg btn-danger me-2">🔥 Vulnerable Login</a>
+    <a href="{{ url_for('safe_login') }}" class="btn btn-lg btn-success">🛡️ Safe Login</a>
+  </div>
+</div>
+{% endblock %}
